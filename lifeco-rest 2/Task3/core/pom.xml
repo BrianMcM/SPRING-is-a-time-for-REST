@@ -1,0 +1,14 @@
+<project>
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>lifeco.rest</groupId>
+        <artifactId>task3</artifactId>
+        <version>1.0</version>
+    </parent>
+    <artifactId>core</artifactId>
+    <packaging>jar</packaging>
+
+    <dependencies>
+        <!-- Add common dependencies for distributed objects here -->
+    </dependencies>
+</project>
