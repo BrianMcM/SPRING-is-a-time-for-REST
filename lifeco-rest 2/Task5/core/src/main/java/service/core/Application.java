@@ -4,7 +4,7 @@ public class Application {
     private static int COUNTER = 1000;
     public int id;
     public ClientInfo info;
-    public ArrayList<Quotation> quotations;
+    public ArrayList<Quotation> quotations = new ArrayList<>();
     public Application(ClientInfo info) {
         this.id = COUNTER++;
         this.info = info;

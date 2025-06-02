@@ -13,18 +13,18 @@ services:
 #    environment:
 #      - ACTIVEMQ_HOST=server  # Use the alias defined above
 
-  auldfellas:
-    build:
-      context: ./auldfellas  # Path to Dockerfile for auldfellas
-    container_name: auldfellas
-    networks:
-      my-network:
-        aliases:
-          - auldfellas
-#    depends_on:
-#      - activemq  # Ensure auldfellas starts after activemq
-#    environment:
-#      - ACTIVEMQ_HOST=server  # Use the alias defined above
+#  auldfellas:
+#    build:
+#      context: ./auldfellas  # Path to Dockerfile for auldfellas
+#    container_name: auldfellas
+#    networks:
+#      my-network:
+#        aliases:
+#          - auldfellas
+##    depends_on:
+##      - activemq  # Ensure auldfellas starts after activemq
+##    environment:
+##      - ACTIVEMQ_HOST=server  # Use the alias defined above
 
   dodgygeezers:
     build:

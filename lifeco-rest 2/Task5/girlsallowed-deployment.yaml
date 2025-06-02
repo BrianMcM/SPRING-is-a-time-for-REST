@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: girlsallowed
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: girlsallowed
+  template:
+    metadata:
+      labels:
+        app: girlsallowed
+    spec:
+      containers:
+        - name: girlsallowed
+          image: girlsallowed:latest  # or your-dockerhub-username/auldfellas:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8081
+          resources: # <--- Add this block
+            requests:
+              memory: "128Mi"
+              cpu: "250m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"

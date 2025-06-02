@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auldfellas
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: auldfellas
+  template:
+    metadata:
+      labels:
+        app: auldfellas
+      annotations: # <-- Added for Prometheus
+        prometheus.io/scrape: "true"            # Tells Prometheus to scrape this pod
+        prometheus.io/path: "/actuator/prometheus" # Path to scrape
+        prometheus.io/port: "8080"              # Port to scrape
+    spec:
+      containers:
+        - name: auldfellas
+          image: auldfellas:latest  # or your-dockerhub-username/auldfellas:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8080
+          resources: # <--- Add this block
+            requests:
+              memory: "128Mi"
+              cpu: "250m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
