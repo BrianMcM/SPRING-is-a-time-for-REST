@@ -1,0 +1,103 @@
+<!--
+  ~ Checkmk (https://checkmk.com)
+  ~ @link https://checkmk.com
+  ~ @copyright Copyright (c) 2020 Tribe29 GmbH. (https://www.tribe29.com)
+  -->
+<!doctype html>
+<html lang="EN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Unauthorized | Checkmk</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Nunito+Sans');
+
+        html, body {
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            /*min-height: 100vh;*/
+            /*min-width: 100vw;*/
+            font-family: "Nunito Sans", "Liberation Mono", Consolas, monospace;
+            color: rgb(44, 56, 67);
+        }
+
+        .mx-auto {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .container,
+        .container > .row,
+        .container > .row > div {
+            height: 100%;
+        }
+
+        #countUp {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        #countUp .number {
+            font-size: 10rem;
+            font-weight: 500;
+        }
+
+        #countUp .number + .text {
+            margin: 0 0 1rem;
+        }
+
+        #countUp .text {
+            font-weight: 300;
+            text-align: center;
+        }
+
+        #countUp .large {
+            font-weight: 500;
+            font-size: 1.5rem;
+        }
+
+        .home {
+            margin-top: 1.5rem;
+            padding: 1rem 2rem;
+            border: 2px solid rgb(19, 211, 137);
+            border-radius: 30px;
+            background-color: transparent;
+            color: rgb(19, 211, 137);
+            text-decoration: none;
+            font-size: 1.25rem;
+            font-weight: 500;
+        }
+        .home:hover {
+            background-color: rgb(19, 211, 137);
+            color: rgb(255, 255, 255);
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="xs-12 md-6 mx-auto">
+            <div id="countUp">
+                <div class="number" data-count="401">401</div>
+                <div class="text large">UH OH! It seems you're are not authorized to be here.</div>
+                <div class="text">But you can click the button below to go back to checkmk.com.</div>
+                <a class="home" href="https://checkmk.com">Go to checkmk.com</a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

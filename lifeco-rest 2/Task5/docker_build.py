@@ -15,7 +15,9 @@ for name, path in services.items():
         stderr=subprocess.PIPE,
         text=True
     )
+    # noinspection PyInterpreter
     if result.returncode == 0:
+        print(result.stdout)
         print(f"{name} built successfully.\n")
     else:
         print(f"Failed to build {name}:\n{result.stderr}")

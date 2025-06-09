@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: broker
+spec:
+  replicas: 1  # You can increase this for horizontal scaling
+  selector:
+    matchLabels:
+      app: broker
+  template:
+    metadata:
+      labels:
+        app: broker
+    spec:
+      containers:
+        - name: broker
+          image: broker:latest  # Or your Docker Hub repo, e.g. myuser/broker:latest
+          imagePullPolicy: Never  # Use "Always" if pulling from Docker Hub
+          ports:
+            - containerPort: 8083  # Assuming broker listens on 8083
+          resources: # <--- Add this block
+            requests:
+              memory: "128Mi"
+              cpu: "250m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"

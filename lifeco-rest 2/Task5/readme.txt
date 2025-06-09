@@ -55,5 +55,19 @@ curl -X POST http://localhost:30730/applications -H "Content-Type: application/j
 
 curl -X POST http://localhost:31039/applications -H "Content-Type: application/json" -d '{"name":"Donald Duck","gender":"M","age":35,"height":0.45,"weight":1.6,"smoker":false,"medicalIssues":false}'
 
-
 kubectl autoscale deployment auldfellas --cpu-percent=50 --min=1 --max=5
+
+docker rm monitoring
+
+docker run -dit \
+  --name monitoring \
+  -p 8080:5000 \
+  -p 8000:8000 \
+  --tmpfs /opt/omd/sites/cmk/tmp:uid=1000,gid=1000 \
+  checkmk/check-mk-raw:2.4.0-latest \
+  bash -c "omd start cmk; tail -F /omd/sites/cmk/var/log/nagios.log"
+
+  docker container run -dit -p 8080:5000 -p 8000:8000 \
+      --tmpfs /opt/omd/sites/cmk/tmp:uid=1000,gid=1000 \
+      -v monitoring:/omd/sites --name monitoring -v /etc/localtime:/etc/localtime:ro \
+      --restart always checkmk/check-mk-raw:2.4.0-latest
